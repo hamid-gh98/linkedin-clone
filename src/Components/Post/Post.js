@@ -17,8 +17,14 @@ function Post({ name, title, description, images, profileImage, likes }) {
           <p>{title}</p>
         </div>
       </div>
-      <div className="post__description">{description}</div>
-      <img className="post__image" src={images[0]} alt="Post" />
+      {description && description.length > 0 ? (
+        <div className="post__description">{description}</div>
+      ) : null}
+
+      {images && images[0] ? (
+        <img className="post__image" src={images[0]} alt="Post" />
+      ) : null}
+
       <p className="post__reactions">
         {likes === 0 ? "Be the first one to like" : `${likes} Likes`}
       </p>

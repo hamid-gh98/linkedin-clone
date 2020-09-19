@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CreatePost, Post } from "../../Components";
+import { db } from "../../firebase";
 import "./Feed.css";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        var posts = snapshot.docs.map((doc) => doc.data());
+        console.log(posts);
+        setPosts(posts);
+      });
+  }, []);
+
   return (
     <div className="feed">
       <CreatePost />
       <br />
-      {/* <hr /> */}
-      <Post
+      {posts.map(
+        ({ name, title, description, likes, profileImage, images }) => (
+          <Post
+            name={name}
+            title={title}
+            description={description}
+            profileImage={profileImage}
+            images={images}
+            likes={likes}
+          />
+        )
+      )}
+      {/* <Post
         name="Rahul"
         title="Software Developer at IBM | Agile Learner | Full Stack web developer | Mobile Technologies"
         description="Risk only if you afford to lose Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium est id hendrerit consequat. Curabitur ut ipsum sollicitudin tellus blandit pharetra sed porttitor tortor. Vestibulum nec euismod ante. Aenean quis tempus nibh, quis mattis tellus. Curabitur sit amet odio nisi. Donec ac lorem porttitor, finibus tellus ac, tristique augue. Phasellus commodo sit amet purus ac convallis. Maecenas non nisi velit.
@@ -48,7 +72,7 @@ Curabitur dolor velit, ultrices ac leo ut, vestibulum dapibus libero. Proin tinc
           "https://miro.medium.com/max/1080/1*WvN_cMrf5mENOBzu1UGIxA.jpeg",
         ]}
         likes={0}
-      />
+      /> */}
     </div>
   );
 }

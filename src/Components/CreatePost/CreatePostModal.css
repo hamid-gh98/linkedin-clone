@@ -1,0 +1,47 @@
+.modal__textArea {
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  margin-top: 20px;
+  outline: none;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.modal__label > input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.modal__label {
+  cursor: pointer;
+  display: flex;
+  margin-top: 0px;
+}
+
+.modal__label > p {
+  margin-left: 10px;
+}
+
+.cameraIcon {
+  color: #33aad9;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.modal__postbutton {
+  background-color: #0173b1 !important;
+  color: white !important;
+  min-width: 64px;
+  max-height: 34px;
+}
+
+.MuiCircularProgress-root {
+  height: 20px !important;
+  width: 20px !important;
+  color: white !important;
+}

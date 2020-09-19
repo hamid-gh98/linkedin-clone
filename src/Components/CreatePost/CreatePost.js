@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CreateIcon from "@material-ui/icons/Create";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import VideocamIcon from "@material-ui/icons/Videocam";
@@ -6,11 +6,20 @@ import DescriptionIcon from "@material-ui/icons/Description";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 
 import "./CreatePost.css";
+import CreatePostModal from "./CreatePostModal";
 
 function CreatePost() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="createPost">
-      <div className="createPost__start">
+      <CreatePostModal
+        open={open}
+        setOpen={setOpen}
+        profileImage="https://material-ui.com/static/images/avatar/2.jpg"
+        name="Rahul"
+        title="Software Developer"
+      />
+      <div className="createPost__start" onClick={() => setOpen(true)}>
         <CreateIcon />
         <p>Start a post</p>
       </div>
