@@ -1,0 +1,80 @@
+.createPost {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 2px;
+  max-width: 680px;
+}
+
+.createPost__start {
+  display: flex;
+  color: gray;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.createPost__start > p {
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.createPost__start:hover {
+  background-color: lightgray;
+  color: black;
+}
+
+.createPost__icons {
+  max-width: 680px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.createPost__iconDiv {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: gray;
+  cursor: pointer;
+}
+
+.createPost__iconDiv:hover {
+  background-color: lightgray;
+  color: black;
+}
+
+.cameraIcon {
+  color: #33aad9;
+}
+
+.videoIcon {
+  color: #9896f2;
+}
+
+.documentIcon {
+  color: #17aeb8;
+}
+
+.articleIcon {
+  color: #ef7e37;
+}
+
+.createPost__iconDiv > p {
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+@media (max-width: 1500px) {
+  .hidearticle {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .createPost__icons {
+    display: none;
+  }
+}

@@ -1,0 +1,23 @@
+.app__body {
+  display: flex;
+  justify-content: center;
+}
+
+.app__body .leftContainer {
+  margin: 15px;
+}
+
+.app__body .rightContainer {
+  margin: 15px;
+}
+
+.app__body .feed {
+  margin: 15px;
+}
+
+@media (max-width: 1250px) {
+  .app {
+    display: flex;
+    justify-content: center;
+  }
+}
