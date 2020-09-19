@@ -1,6 +1,5 @@
 .leftContainer {
-  flex: 0.2;
-  border: 1px solid brown;
+  flex: 0.17;
 }
 
 @media (max-width: 1250px) {

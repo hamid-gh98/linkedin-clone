@@ -33,7 +33,7 @@
 .post__icons {
   border-top: 1px solid lightgray;
   display: flex;
-  padding-bottom: 3px;
+  padding: 5px;
 }
 
 .post__iconDiv {

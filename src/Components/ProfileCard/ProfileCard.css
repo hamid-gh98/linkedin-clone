@@ -1,0 +1,70 @@
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.profileCard__avatar {
+  height: 100px !important;
+  width: 100px !important;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid white;
+  box-shadow: inset 0 1.5px 3px 0 rgba(0, 0, 0, 0.15),
+    0 1.5px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.profileCard__description {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.profileCard__description > p {
+  padding: 20px;
+}
+
+.profileCard__bgimage {
+  background-image: url("https://static-exp1.licdn.com/sc/h/5qi38njir9vsm46ync2qjvrrs");
+  height: 100px;
+  width: 100%;
+}
+
+.profileCard__info {
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.profileCard__infoDiv {
+  padding: 5px;
+  color: gray;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profileCard__infoDivNum {
+  color: #0173b1;
+}
+
+.profileCard__bookmark {
+  padding: 10px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.bookmark__icon {
+  color: gray;
+}
+
+.profileCard__bookmark > p {
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: 600;
+}
