@@ -1,10 +1,11 @@
 import React from "react";
+import { NewsCard } from "../../Components";
 import "./RightContainer.css";
 
 function RightContainer() {
   return (
     <div className="rightContainer">
-      <h1>RightContainer</h1>
+      <NewsCard />
     </div>
   );
 }

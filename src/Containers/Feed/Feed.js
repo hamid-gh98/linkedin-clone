@@ -34,6 +34,7 @@ Curabitur dolor velit, ultrices ac leo ut, vestibulum dapibus libero. Proin tinc
         name="Test 2"
         title="Software Developer"
         description="Risk only if you afford to lose"
+        profileImage="https://www.gstatic.com/tv/thumb/persons/589228/589228_v9_ba.jpg"
         images={[
           "https://miro.medium.com/max/1080/1*WvN_cMrf5mENOBzu1UGIxA.jpeg",
         ]}

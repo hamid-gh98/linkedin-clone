@@ -1,0 +1,35 @@
+.newsCard {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 10px;
+}
+
+.newsCard > p {
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+.newsCard > div {
+  padding-bottom: 10px;
+}
+
+.newsCard > div > a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.newsCard > div > a:hover {
+  text-decoration: underline;
+}
+
+.newsCard__bullet {
+  height: 10px;
+  width: 10px;
+  background-color: #33aada;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
