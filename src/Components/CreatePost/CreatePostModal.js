@@ -193,7 +193,11 @@ export default function CreatePostModal({
                 onClick={handlePost}
                 className="modal__postbutton"
               >
-                {loading ? <CircularProgress /> : "Post"}
+                {loading ? (
+                  <CircularProgress className="modal__progess" />
+                ) : (
+                  "Post"
+                )}
               </Button>
             </div>
           </div>

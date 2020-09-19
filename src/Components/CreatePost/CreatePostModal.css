@@ -40,7 +40,7 @@
   max-height: 34px;
 }
 
-.MuiCircularProgress-root {
+.modal__progess-root {
   height: 20px !important;
   width: 20px !important;
   color: white !important;
