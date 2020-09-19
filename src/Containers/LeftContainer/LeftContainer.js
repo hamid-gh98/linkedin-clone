@@ -1,5 +1,5 @@
 import React from "react";
-import { ProfileCard } from "../../Components";
+import { ProfileCard, RecentCard } from "../../Components";
 import "./LeftContainer.css";
 
 function LeftContainer() {
@@ -10,6 +10,7 @@ function LeftContainer() {
         name="Raja Rahul"
         title="Software Developer at IBM | Agile Learner | Full Stack web developer | Mobile Technologies"
       />
+      <RecentCard />
     </div>
   );
 }

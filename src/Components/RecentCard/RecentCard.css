@@ -1,0 +1,50 @@
+.recentCard {
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 10px;
+}
+
+.recentCard > div {
+  padding: 5px 0px 0px 0px;
+  display: flex;
+  color: grey;
+}
+
+.recentCard > p {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.recentCard > div > p {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recentCard > div > p:hover {
+  text-decoration: underline;
+}
+
+.reactCard__blueHeading {
+  color: #0173b1;
+  font-weight: 600;
+}
+
+.recentCard__discover {
+  border-top: 1px solid lightgray;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.recentCard__discover:hover {
+  text-decoration: underline;
+}
