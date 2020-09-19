@@ -6,8 +6,20 @@ import ShareIcon from "@material-ui/icons/Share";
 import SendIcon from "@material-ui/icons/Send";
 
 import "./Post.css";
+import { db } from "../../firebase";
 
-function Post({ name, title, description, images, profileImage, likes }) {
+function Post({ name, title, description, images, profileImage, likes, id }) {
+  const handleLike = () => {
+    db.collection("posts")
+      .doc(id)
+      .update({
+        likes: likes + 1,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   return (
     <div className="post">
       <div className="post__header">
@@ -26,10 +38,14 @@ function Post({ name, title, description, images, profileImage, likes }) {
       ) : null}
 
       <p className="post__reactions">
-        {likes === 0 ? "Be the first one to like" : `${likes} Likes`}
+        {likes === 0
+          ? "Be the first one to like"
+          : likes === 1
+          ? `${likes} Like`
+          : `${likes} Likes`}
       </p>
       <div className="post__icons">
-        <div className="post__iconDiv">
+        <div className="post__iconDiv" onClick={handleLike}>
           <ThumbUpIcon />
           <p>Like</p>
         </div>

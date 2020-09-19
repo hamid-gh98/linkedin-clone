@@ -78,13 +78,11 @@ export default function CreatePostModal({
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   const handleClose = () => {
     setDescription("");
     setImage(null);
     setLoading(false);
-    setProgress(0);
     setOpen(false);
   };
 
@@ -111,13 +109,7 @@ export default function CreatePostModal({
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
-      (snapShot) => {
-        // progress function
-        const progress = Math.round(
-          (snapShot.bytesTransferred / snapShot.totalBytes) * 100
-        );
-        setProgress(progress);
-      },
+      () => {},
       (error) => {
         setLoading(false);
         console.log(error);

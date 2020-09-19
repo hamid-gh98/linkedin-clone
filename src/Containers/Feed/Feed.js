@@ -10,7 +10,10 @@ function Feed() {
     db.collection("posts")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
-        var posts = snapshot.docs.map((doc) => doc.data());
+        var posts = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          post: doc.data(),
+        }));
         console.log(posts);
         setPosts(posts);
       });
@@ -21,8 +24,13 @@ function Feed() {
       <CreatePost />
       <br />
       {posts.map(
-        ({ name, title, description, likes, profileImage, images }) => (
+        ({
+          post: { name, title, description, likes, profileImage, images },
+          id,
+        }) => (
           <Post
+            key={id}
+            id={id}
             name={name}
             title={title}
             description={description}
