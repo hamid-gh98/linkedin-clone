@@ -4,7 +4,7 @@ import { Feed, LeftContainer, RightContainer } from "./Containers";
 import { useStateValue } from "./StateProvider";
 import { auth, db } from "./firebase";
 import { CircularProgress } from "@material-ui/core";
-import { Login } from "./Components";
+import { Header, Login } from "./Components";
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -46,8 +46,6 @@ function App() {
     };
   }, []);
 
-  console.log("Auth User in App.js ---> ", user);
-
   return (
     <div className="app">
       {loading ? (
@@ -55,10 +53,13 @@ function App() {
           <CircularProgress className="app__progress" />
         </div>
       ) : user ? (
-        <div className="app__body">
-          <LeftContainer />
-          <Feed />
-          <RightContainer />
+        <div>
+          <Header />
+          <div className="app__body">
+            <LeftContainer />
+            <Feed />
+            <RightContainer />
+          </div>
         </div>
       ) : (
         <Login />

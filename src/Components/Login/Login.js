@@ -1,4 +1,4 @@
-import { Avatar, TextField } from "@material-ui/core";
+import { Avatar, CircularProgress, TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { auth, storage, db } from "../../firebase";
 import "./Login.css";
@@ -39,6 +39,24 @@ function Login() {
   const handleSignUp = (e) => {
     e.preventDefault();
     setLoadSignin(true);
+    if (image === null) {
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((authUser) => {
+          db.collection("users").doc(authUser?.user.uid).set({
+            profileImage:
+              "https://cdn1.vectorstock.com/i/thumb-large/77/30/default-avatar-profile-icon-grey-photo-placeholder-vector-17317730.jpg",
+            title: title,
+            name: name,
+          });
+          setLoadSignin(false);
+        })
+        .catch((error) => {
+          alert(error.message);
+          setLoadSignin(false);
+        });
+      return;
+    }
     // upload the image
     const uploadTask = storage.ref(`profileImages/${image.name}`).put(image);
     uploadTask.on(
@@ -262,14 +280,20 @@ function Login() {
             type="text"
             placeholder="Software Developer, Product Manager"
           />
-          <button
-            disabled={loadSignin}
-            onClick={handleSignUp}
-            type="submit"
-            className="login__sigin"
-          >
-            Join
-          </button>
+          {loadSignin ? (
+            <button disabled={true} className="login__sigin login__loader">
+              <CircularProgress />
+            </button>
+          ) : (
+            <button
+              disabled={loadSignin}
+              onClick={handleSignUp}
+              type="submit"
+              className="login__sigin"
+            >
+              Join
+            </button>
+          )}
         </form>
       </div>
     );

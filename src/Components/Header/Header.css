@@ -1,0 +1,40 @@
+.header {
+  background-color: #283e4a;
+  /* padding: 8px 13rem 8px 13rem; */
+  padding: 8px 0px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  padding-left: 13rem;
+}
+
+.header__left > input {
+  padding: 7px;
+  outline: none;
+  border: none;
+  margin-left: 10px;
+  width: 250px;
+}
+
+.header__right {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  padding-right: 13rem;
+}
+
+@media (max-width: 1250px) {
+  .header {
+    display: none;
+  }
+}
