@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Feed, LeftContainer, RightContainer } from "./Containers";
 import { useStateValue } from "./StateProvider";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
 import { CircularProgress } from "@material-ui/core";
 import { Login } from "./Components";
 
@@ -19,7 +19,18 @@ function App() {
           type: "SET_USER",
           user: authUser,
         });
-        setLoading(false);
+
+        db.collection("users")
+          .doc(authUser.uid)
+          .get()
+          .then((sanpshot) => {
+            console.log("Data ---> ", sanpshot.data());
+            dispatch({
+              type: "PROFILE_DATA",
+              profileData: sanpshot.data(),
+            });
+            setLoading(false);
+          });
       } else {
         //logged out
         dispatch({
@@ -34,6 +45,8 @@ function App() {
       unsubscribe();
     };
   }, []);
+
+  console.log("Auth User in App.js ---> ", user);
 
   return (
     <div className="app">

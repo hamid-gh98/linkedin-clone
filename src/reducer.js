@@ -1,5 +1,6 @@
 export const initialState = {
   user: null,
+  profileData: {},
 };
 
 const reducer = (state, action) => {
@@ -8,6 +9,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.user,
+      };
+    case "PROFILE_DATA":
+      return {
+        ...state,
+        profileData: action.profileData,
       };
     default:
       return state;

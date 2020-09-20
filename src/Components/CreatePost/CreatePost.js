@@ -12,13 +12,7 @@ function CreatePost() {
   const [open, setOpen] = useState(false);
   return (
     <div className="createPost">
-      <CreatePostModal
-        open={open}
-        setOpen={setOpen}
-        profileImage="https://material-ui.com/static/images/avatar/2.jpg"
-        name="Rahul"
-        title="Software Developer"
-      />
+      <CreatePostModal open={open} setOpen={setOpen} />
       <div className="createPost__start" onClick={() => setOpen(true)}>
         <CreateIcon />
         <p>Start a post</p>

@@ -10,6 +10,11 @@
   margin-top: 20px;
 }
 
+.login > p,
+.login > h2 {
+  text-align: center;
+}
+
 .login__form {
   display: flex;
   flex-direction: column;
@@ -41,6 +46,27 @@
   font-weight: 600;
   margin-left: 5px;
   cursor: pointer;
+}
+
+.login__avatar {
+  height: 125px !important;
+  width: 125px !important;
+}
+
+.login__formImage {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.login__formImage input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.login__avatar > img {
+  margin-top: -3px;
 }
 
 @media (max-width: 400px) {

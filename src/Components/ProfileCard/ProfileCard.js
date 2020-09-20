@@ -3,15 +3,22 @@ import React from "react";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 
 import "./ProfileCard.css";
+import { useStateValue } from "../../StateProvider";
 
-function ProfileCard({ profileImage, name, title }) {
+function ProfileCard() {
+  const [{ profileData }] = useStateValue();
+
   return (
     <div className="profileCard">
       <div className="profileCard__bgimage"></div>
-      <Avatar alt={name} className="profileCard__avatar" src={profileImage} />
+      <Avatar
+        alt={profileData.name}
+        className="profileCard__avatar"
+        src={profileData.profileImage}
+      />
       <div className="profileCard__description">
-        <h3>{name}</h3>
-        <p>{title}</p>
+        <h3>{profileData.name}</h3>
+        <p>{profileData.title}</p>
       </div>
       <div className="profileCard__info">
         <div className="profileCard__infoDiv">

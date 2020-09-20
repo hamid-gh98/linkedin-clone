@@ -16,6 +16,7 @@ import firebase from "firebase";
 
 import "./CreatePostModal.css";
 import { storage, db } from "../../firebase";
+import { useStateValue } from "../../StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -66,18 +67,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CreatePostModal({
-  open = false,
-  setOpen,
-  profileImage,
-  name,
-  title,
-}) {
+export default function CreatePostModal({ open = false, setOpen }) {
   const classes = useStyles();
 
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [{ profileData }] = useStateValue();
 
   const handleClose = () => {
     setDescription("");
@@ -99,9 +95,9 @@ export default function CreatePostModal({
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         description: description,
         likes: 0,
-        name: name,
-        profileImage: profileImage,
-        title: title,
+        name: profileData.name,
+        profileImage: profileData.profileImage,
+        title: profileData.title,
       });
       handleClose();
       return;
@@ -126,10 +122,10 @@ export default function CreatePostModal({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               description: description,
               likes: 0,
-              name: name,
+              name: profileData.name,
               images: [url],
-              profileImage: profileImage,
-              title: title,
+              profileImage: profileData.profileImage,
+              title: profileData.title,
             });
           });
         handleClose();
@@ -160,9 +156,13 @@ export default function CreatePostModal({
               </IconButton>
             </div>
             <div className={classes.avatar}>
-              <Avatar src={profileImage} alt={name} className={classes.large} />
+              <Avatar
+                src={profileData.profileImage}
+                alt={profileData.name}
+                className={classes.large}
+              />
               <div className={classes.avatarDesc}>
-                <h4>{name}</h4>
+                <h4>{profileData.name}</h4>
                 <p className={classes.avatarDescP}>Anyone</p>
               </div>
             </div>
